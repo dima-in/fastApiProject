@@ -1,5 +1,5 @@
 from app.database import Base
-from sqlalchemy import JSON, Column, Integer, String
+from sqlalchemy import JSON, Column, Integer, String, ForeignKey
 # модель таблицы
 class Hotels(Base):
     __tablename__ = "hotels"
@@ -8,6 +8,18 @@ class Hotels(Base):
     name = Column(String, nullable=False)
     location = Column(String, nullable=False)
     services = Column(JSON)
-    room_quantiy = Column(Integer, nullable=False)
+    rooms_quantity = Column(Integer, nullable=False)
+    image_id = Column(Integer)
+
+class Rooms(Base):
+    __tablename__ = "rooms"
+
+    id = Column(Integer, primary_key=True, nullable=False)
+    hotel_id = Column(ForeignKey("hotels.id"), nullable=False)
+    name = Column(String, nullable=False)
+    description = Column(String, nullable=True)
+    price = Column(Integer, nullable=False)
+    quantity = Column(Integer, nullable=False)
+    services = Column(JSON, nullable=True)
     image_id = Column(Integer)
 
