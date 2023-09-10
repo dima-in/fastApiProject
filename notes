@@ -1,0 +1,9 @@
+docker exec -it <container_id_or_name> bash
+psql -U postgresuser -d postgresdbname
+\dt список всех таблиц в текущей базе данных, а именно их имена и схемы
+\d table_name отобразит таблицу table_name
+\q выход
+\x расширеный режим отображения
+
+
+ alembic upgrade head "прогнать" миграции
