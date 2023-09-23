@@ -8,7 +8,7 @@ class Hotels(Base):
     id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     name: Mapped[str] = mapped_column(nullable=False)
     location: Mapped[str] = mapped_column(nullable=False)
-    services: Mapped[dict] = mapped_column(JSON, nullable=True)
+    services: Mapped[list[str]] = mapped_column(JSON, nullable=True)
     rooms_quantity: Mapped[int] = mapped_column(nullable=False)
     image_id: Mapped[int]
 
@@ -20,7 +20,7 @@ class Rooms(Base):
     name: Mapped[str] = mapped_column(nullable=False)
     description: Mapped[str] = mapped_column(nullable=True)
     price: Mapped[int] = mapped_column(nullable=False)
-    services : Mapped[list[str]] = mapped_column(JSON, nullable=True)
+    services: Mapped[list[str]] = mapped_column(JSON, nullable=True)
     quantity: Mapped[int] = mapped_column(nullable=False)
-    image_id:Mapped[int]
+    image_id: Mapped[int]
 
